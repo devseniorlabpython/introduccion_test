@@ -1,4 +1,5 @@
-from producto_crud import agregar_producto, leer_productos, eliminar_producto, leer_producto, actualizar_producto
+from producto_crud import agregar_producto, leer_productos, eliminar_producto, leer_producto, actualizar_producto, \
+    exportar_productos_txt
 import os
 
 if __name__ == "__main__":
@@ -9,7 +10,8 @@ if __name__ == "__main__":
         print("3. Leer producto por ID")
         print("4. Actualizar producto")
         print("5. Eliminar producto")
-        print("6. Salir")
+        print("6. Exportar productos a txt")
+        print("7. Salir")
 
         opcion = input("Seleccione una opción: ")
         
@@ -37,8 +39,12 @@ if __name__ == "__main__":
         elif opcion == "5":
             id_producto = int(input("Ingrese el ID del producto a eliminar: "))
             eliminar_producto(id_producto)
-            
+
         elif opcion == "6":
+            nombre_archivo = input("Ingrese el nombre del archivo para exportar los productos:")
+            exportar_productos_txt(nombre_archivo)
+            
+        elif opcion == "7":
             break
         
         else:

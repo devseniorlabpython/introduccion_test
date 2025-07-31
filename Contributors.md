@@ -1,1 +1,2 @@
 - [Tu nombre aqui] - Esta es mi primer contribucion 
+- [Nicolas Santiago Naranjo] - Añadir funcionalidad para exportar inventario a un archivo de texto (.txt) y a una hoja de calculo (excel). 

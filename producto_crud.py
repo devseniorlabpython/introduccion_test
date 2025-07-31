@@ -1,3 +1,4 @@
+import os
 from typing import Dict
 
 class Producto:
@@ -47,3 +48,27 @@ def actualizar_producto(id_producto, nuevo_nombre, nuevo_precio):
         print(f"Producto actualizado: {producto}")
     else:
         print("Producto no encontrado.")
+
+
+def exportar_productos_txt(nombre_archivo:str):
+    # Salir si no hay productos creados
+    if not fake_db:
+        print("No hay productos en el inventario")
+        return
+
+    # Crear directorio dentro del proyecto, si no existe
+    exportar_directory = "exports-txt"
+    os.makedirs(exportar_directory, exist_ok=True)
+
+    # Ruta donde se guardara el archivo exportado
+    filepath = os.path.join(exportar_directory, f"{nombre_archivo}.txt")
+
+    try:
+        # Generar el archivo txt con los datos existentes en fake_db
+        with open(filepath, "w", encoding="utf-8") as archivo:
+            for id_producto, producto in fake_db.items():
+                linea = f"ID: {id_producto}, Producto: {producto.nombre} - Precio: ${producto.precio}.\n"
+                archivo.write(linea)
+        print(f"✅ Productos exportados correctamente a {filepath}")
+    except Exception as e:
+        print(f"❌ Error al exportar productos: {e}")
