@@ -1,0 +1,3 @@
+ID: 1, Producto: melon - Precio: $1000.
+ID: 2, Producto: kiwi - Precio: $1200.
+ID: 3, Producto: papaya - Precio: $1000\.
