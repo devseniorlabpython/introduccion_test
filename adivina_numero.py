@@ -34,3 +34,32 @@ Pista 3: Un bucle while es perfecto para este juego. Puedes hacer que el bucle s
 from random import randint
 
 numero_secreto = randint(1,50)
+oportunidades = 5
+
+contador = 0
+print("Adivina el numero secreto entre 1 y 50")
+
+def adivina_numero():
+    global contador
+    while contador < oportunidades:
+        contador += 1
+        try:
+            numero_ingresado = int(input("Ingrese un numero: "))
+            if numero_ingresado == numero_secreto:
+                print("Felicitaciones...! \n Correcto! Has adivinado el numero.")
+                break
+            elif numero_ingresado > numero_secreto:
+                print("upps! te pasastes! Intenta de nuevo.")
+    
+            elif numero_ingresado < numero_secreto:
+                print("Ups! te quedaste corto! Intenta de nuevo.")
+    
+            print(f"\n Te quedan {oportunidades - contador} oportunidades.")
+        except ValueError:
+            print("Debes ingresar un numero entero.\n perdistes una oportunidad")
+
+    if contador == oportunidades:
+        print(f"Te quedaste sin oportunidades. El numero era {numero_secreto}\n Intentalo en otra oportunidad")
+        
+        
+adivina_numero()
