@@ -34,3 +34,32 @@ Pista 3: Un bucle while es perfecto para este juego. Puedes hacer que el bucle s
 from random import randint
 
 numero_secreto = randint(1,50)
+intentos = 0
+
+
+print("¡Bienvenido al juego de adivinar el número!")
+print("He elegido un número entre 1 y 50. ¿Puedes adivinar cuál es?")   
+
+while True:
+    try:
+
+        # Pedir al usuario que ingrese un número
+        guess = int(input("\n¿Cuál crees que es el número? "))
+        intentos += 1
+        
+        # Verificar si adivinó
+        if guess == numero_secreto:
+            print(f"🎉 ¡Correcto! ¡Has adivinado el número {numero_secreto} en {intentos} intentos!")
+            break
+        
+        # Dar pistas
+        elif guess > numero_secreto:
+            print("¡Demasiado alto! Intenta con un número más bajo.")
+        else:
+            print(" ¡Demasiado bajo! Intenta con un número más alto.")
+            
+    except ValueError:
+        print("Por favor, ingresa solo números enteros.")
+
+print("\n¡Gracias por jugar! ")        
+ 
